@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>This is Kaka's Website</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="shortcut icon" href="assets/logo-kakacode.png"/>
+ </head>
+
+ <body>
+    <!-- NAVBAR START -->
+<div>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="coding.html">Back to Main Page</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Searching
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#sequential-search">Sequential Search</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#binary-search">Binary Search</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Sorting
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#bubble-sort">Bubble Sort</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#insertion-sort">Insertion Sort</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#selection-sort">Selection Sort</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+</div>
+<!-- NAVBAR END -->
+
+<!-- HOME CONTENT START -->
+<div class="m-3">
+    <h4 id="searching">Searching</h4>
+    <ul>
+        <li>Sequential Search</li>
+    </ul>
+    <a href="algorithm.html">Back to Top</a>
+    <div class="bg-dark" id="sequential-search">
+        <p class="text-white m-1">
+            #include&lt;bits/stdc++.h&gt;<br>
+            using namespace std;<br><br>
+
+            int main(){<br>
+                int req, n;<br>
+                int location = 0;<br><br>
+                
+                cout << "How many numbers would you like to input ? : ";<br><br>
+                
+                cin >> n;<br><br>
+                
+                int arr1[n];<br><br>
+    
+                cout << "Enter " << n << " numbers to store in array : ";<br><br>
+                
+                for(int i = 0; i < n; i++){<br>
+                    cin>>arr1[i];<br>
+                }<br><br>
+                
+                cout << endl;<br>
+                cout << "Enter the number you want to find : ";<br><br>
+                
+                cin >> req;<br><br>
+                
+                cout << endl;<br><br>
+            
+                for(int i = 0; i < n; i++){<br>
+                    if(arr1[i] == req){<br>
+                        location = i;<br>
+                    }<br>
+                }<br><br>
+                
+                if(location != 0){<br>
+                    cout << "Required number is found out at the index : " << location;<br>
+                    cout << endl;<br>
+                }else{<br>
+                    cout << "Number is not found ";<br>
+                    cout << endl;<br>
+                }<br><br>
+                
+                }
+        </p>
+    </div>
+    <ul>
+        <li>Binary Search</li>
+    </ul>
+    <a href="algorithm.html">Back to Top</a>
+    <div class="bg-dark" id="binary-search">
+        <p class="text-white m-1">
+            #include&lt;bits/stdc++.h&gt;<br>
+            using namespace std;<br><br>
+
+            int binarySearch(int arr[], int l, int r, int x){<br>
+                if (r >= l) {<br>
+                    int mid = l + (r - l) / 2;<br><br>
+
+                    if (arr[mid] == x){<br>
+                        return mid;<br>
+                    } else if (arr[mid] > x){<br>
+                        return binarySearch(arr, l, mid - 1, x);<br>
+                    } else{<br>
+                        return binarySearch(arr, mid + 1, r, x);<br>
+                    }<br>
+                }<br><br>
+
+                return -1;<br>
+            }<br><br>
+
+            int main(){<br>
+                int k, x;<br><br>
+                
+                cout << "How many number would you like to input : ";<br><br>
+                
+                cin >> k;<br><br>
+                
+                int arr[k];<br><br>
+                
+                cout << "Number you want to input : ";<br><br>
+                
+                for(int i = 0; i < k; i++){<br>
+                    cin >> arr[i];<br>
+                }<br><br>
+                
+                cout << "Enter number you want to find : ";<br><br>
+                
+                cin >> x;<br><br>
+                
+                int n = sizeof(arr) / sizeof(arr[0]);<br>
+                int result = binarySearch(arr, 0, n - 1, x);<br><br>
+                
+                if (result == -1){<br>
+                    cout << "Element is not present in array";<br>
+                } else{ <br>
+                    cout << "Element is present at position " << result + 1;<br>
+                }<br>
+            }
+        </p>
+    </div>
+    <ul>
+        <li>Bubble Sort</li>
+    </ul>
+    <a href="algorithm.html">Back to Top</a>
+    <div class="bg-dark" id="bubble-sort">
+        <p class="text-white m-1">
+            #include&lt;bits/stdc++.h&gt;<br>
+            using namespace std;<br><br>
+
+            void bubbleSort(int arr[], int N){<br>
+                for(int i = 1; i < N; i++){<br>
+                    for(int j = 1; j < N - i; j++){<br>
+                        if(arr[j] > arr[j + 1]){<br>
+                            swap(arr[j], arr[j + 1]);<br>
+                        }<br>
+                    }<br>
+                }<br>
+            }<br><br>
+
+            void printArray(int arr[], int size){<br>
+                for(int i = 0; i < size; i++){<br>
+                    cout << arr[i] << " ";<br>
+                }<br>
+                cout << endl;<br>
+            }<br><br>
+
+            int main(){<br>
+                int arr[] = {2, 5, 8, 3, 4};<br>
+                int N = sizeof(arr) / sizeof(arr[0]);<br><br>
+                
+                bubbleSort(arr, N);<br>
+                printArray(arr, N);<br><br>
+                
+            }
+        </p>
+    </div>
+    <ul>
+        <li>Insertion Sort</li>
+    </ul>
+    <a href="algorithm.html">Back to Top</a>
+    <div class="bg-dark" id="insertion-sort">
+        <p class="text-white m-1">
+            COMING SOON...
+        </p>
+    </div>
+    <ul>
+        <li>Selection Sort</li>
+    </ul>
+    <a href="algorithm.html">Back to Top</a>
+    <div class="bg-dark" id="selection-sort">
+        <p class="text-white m-1">
+            #include&lt;bits/stdc++.h&gt;<br>
+            using namespace std;<br><br>
+
+            void selectionSort(int arr[], int N){<br>
+                int min_idx;<br><br>
+                
+                for(int i = 0; i < N - 1; i++){<br>
+                    min_idx = i;<br>
+                    for(int j = i + 1; j < N; j++){<br>
+                        if(arr[j] < arr[min_idx]){<br>
+                            min_idx = j;<br>
+                        }<br>
+                    }<br>
+                    swap(arr[i], arr[min_idx]);<br>
+                }<br>
+            }<br><br>
+
+            void printArray(int arr[], int size){<br>
+                for(int i = 0; i < size; i++){<br>
+                    cout << arr[i] << " ";<br>
+                }<br>
+                cout << endl;<br>
+            }<br><br>
+
+            int main(){<br>
+                int arr[] = {2, 5, 8, 3, 4};<br>
+                int N = sizeof(arr) / sizeof(arr[0]);<br><br>
+                
+                selectionSort(arr, N);<br>
+                printArray(arr, N);<br><br>
+                
+            }
+        </p>
+    </div>
+</div>
+<!-- HOME CONTENT END -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
